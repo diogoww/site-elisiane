@@ -490,12 +490,14 @@ h1, h2, h3, h4 {
     margin-inline: 0;
   }
 
-  .hero__content .ornament {
-    justify-content: flex-start;
-  }
-
   .hero__inner .hero__subtitle {
     margin-inline: 0;
+  }
+
+  .hero__content .btn--primary {
+    display: flex;
+    width: fit-content;
+    margin-inline: auto;
   }
 }
 
