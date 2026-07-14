@@ -485,7 +485,7 @@ h1, h2, h3, h4 {
   .hero__logo {
     order: 2;
     flex: 0 0 auto;
-    width: 340px;
+    width: 440px;
     max-width: none;
     margin-inline: 0;
   }
