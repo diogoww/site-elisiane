@@ -196,6 +196,66 @@
   });
 
   /* ------------------------------------------------------------------
+     Rolagem suave (inércia) no mouse/trackpad
+  ------------------------------------------------------------------ */
+  const EASE = 0.1;
+  let smoothCurrent = window.scrollY;
+  let smoothTarget = window.scrollY;
+  let smoothRafId = null;
+
+  const maxScroll = () => document.documentElement.scrollHeight - window.innerHeight;
+
+  const normalizeDelta = (event) => {
+    switch (event.deltaMode) {
+      case 1: return event.deltaY * 18; // linhas
+      case 2: return event.deltaY * window.innerHeight; // páginas
+      default: return event.deltaY; // pixels
+    }
+  };
+
+  const smoothScrollStep = () => {
+    smoothCurrent += (smoothTarget - smoothCurrent) * EASE;
+
+    if (Math.abs(smoothTarget - smoothCurrent) < 0.5) {
+      smoothCurrent = smoothTarget;
+      smoothRafId = null;
+    } else {
+      smoothRafId = requestAnimationFrame(smoothScrollStep);
+    }
+
+    window.scrollTo({ top: smoothCurrent, left: 0, behavior: 'auto' });
+  };
+
+  window.addEventListener(
+    'wheel',
+    (event) => {
+      if (!lightbox.hidden) return;
+      if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+
+      event.preventDefault();
+      smoothTarget = Math.min(Math.max(smoothTarget + normalizeDelta(event), 0), maxScroll());
+
+      if (!smoothRafId) smoothRafId = requestAnimationFrame(smoothScrollStep);
+    },
+    { passive: false }
+  );
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!smoothRafId) {
+        smoothCurrent = window.scrollY;
+        smoothTarget = window.scrollY;
+      }
+    },
+    { passive: true }
+  );
+
+  window.addEventListener('resize', () => {
+    smoothTarget = Math.min(smoothTarget, maxScroll());
+  });
+
+  /* ------------------------------------------------------------------
      Inicializar sliders da galeria
   ------------------------------------------------------------------ */
   document.querySelectorAll('.gallery [data-comparison]').forEach((card) => {
