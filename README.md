@@ -28,8 +28,8 @@ Construído com **HTML5 + CSS3 + JavaScript puro**, sem frameworks, bibliotecas 
       <td align="center"><b>Nossa Senhora Aparecida</b></td>
     </tr>
     <tr>
-      <td><img src="assets/jesus_crucificado_antes.jpeg" width="220" alt="Antes"> ➜ <img src="assets/jesus_crucificado_depois.jpeg" width="220" alt="Depois"></td>
-      <td><img src="assets/nossa_senhora_aparecida_antes.jpeg" width="220" alt="Antes"> ➜ <img src="assets/nossa_senhora_aparecida_depois.jpeg" width="220" alt="Depois"></td>
+      <td><img src="assets/jesus_crucificado_antes.webp" width="220" alt="Antes"> ➜ <img src="assets/jesus_crucificado_depois.webp" width="220" alt="Depois"></td>
+      <td><img src="assets/nossa_senhora_aparecida_antes.webp" width="220" alt="Antes"> ➜ <img src="assets/nossa_senhora_aparecida_depois.webp" width="220" alt="Depois"></td>
     </tr>
   </table>
 </div>
