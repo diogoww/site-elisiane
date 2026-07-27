@@ -69,11 +69,6 @@ python -m http.server 8080
 # depois acesse http://localhost:8080
 ```
 
-## Contato
-
-- **WhatsApp:** [(43) 99875-2725](https://wa.me/5543998752725)
-- **Instagram:** [@elisiane.consultora](https://instagram.com/elisiane.consultora)
-
 ---
 
 <div align="center">
